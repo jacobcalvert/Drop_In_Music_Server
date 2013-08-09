@@ -1,0 +1,149 @@
+body{
+    background:url('../img/dark_clouds.jpg');
+    background-repeat:repeat;
+    font-family:Tahoma, Geneva, sans-serif;
+}
+#container{
+    margin:auto;
+    width:900px;
+    height:100%;
+    background:#fff;
+    opacity:0.6;
+    padding-top:2px;
+}
+#control_bar{
+    width:894px;
+    margin:3px;
+    height:12%;
+    background:#000;
+    color:#fff;
+
+}
+#item_window{
+    width:894px;
+    margin:3px;
+    height:84%;
+    background:#000;
+    overflow:scroll;
+}
+.items_folder{
+    background:url('../img/folder.png');
+    width:100%;
+    height:18px;
+    margin:0;
+    color:white;
+    padding:3px;
+    padding-left:20px;
+    font-size:14px;
+    background-repeat:no-repeat;
+    background-size:18px 18px;
+    cursor:pointer;
+
+
+}
+.items_back_folder{
+    background:url('../img/back.png');
+    width:100%;
+    height:18px;
+    margin:0;
+    color:white;
+    padding:3px;
+    padding-left:20px;
+    font-size:14px;
+    background-repeat:no-repeat;
+    background-size:18px 18px;
+    cursor:pointer;
+
+
+}
+.items_file{
+    background:url('../img/audio.png');
+    width:100%;
+    height:18px;
+    background-repeat:no-repeat;
+    background-size:18px 18px;
+
+    margin:0;
+    color:white;
+    padding:3px;
+    padding-left:20px;
+    font-size:14px;
+    cursor:pointer;
+
+}
+.items_folder:hover{
+    background: #778888 url('../img/folder.png');
+    background-repeat:no-repeat;
+    background-size:18px 18px;
+
+
+
+
+}
+.items_back_folder:hover{
+    background: #778888 url('../img/back.png');
+    background-repeat:no-repeat;
+    background-size:18px 18px;
+
+
+
+
+}
+.items_file:hover{
+    background: #778888 url('../img/audio.png');
+    background-repeat:no-repeat;
+    background-size:18px 18px;
+
+
+
+
+}
+
+
+audio{
+margin:auto;
+width:100%;
+background:#778888;
+
+}
+#search_bar{
+    float:right;
+    opacity:100%;
+
+}
+#btn_play{
+    background:url('../img/play.png');
+    width:40px;
+    height:40px;
+    background-repeat:no-repeat;
+    background-size:40px 40px;
+
+
+}
+#btn_play:hover{
+    background:#778888 url('../img/play.png');
+    width:40px;
+    height:40px;
+    background-repeat:no-repeat;
+    background-size:40px 40px;
+
+
+}
+#btn_pause{
+    background:url('../img/pause.png');
+    width:40px;
+    height:40px;
+    background-repeat:no-repeat;
+    background-size:40px 40px;
+
+
+}
+#btn_pause:hover{
+    background:#778888 url('../img/pause.png');
+    width:40px;
+    height:40px;
+    background-repeat:no-repeat;
+    background-size:40px 40px;
+
+
+}
