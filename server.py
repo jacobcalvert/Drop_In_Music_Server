@@ -7,8 +7,8 @@ import string
 import urllib
 
 patterns = ["*.mp3","*.aiff","*.ogg","*.m4a"]
-rootPath = "C:/Users/Jacob/Music/Music Prior to 2nd Re-flash/"
-htmlPath = "C:/Users/Jacob/Documents/Python/Drop In Music Server/html/"
+rootPath = "C:/Path/To/Your/Music"
+htmlPath = "C:/Path/To/Your/html"
 
 class MainHandler(tornado.web.RequestHandler):
     def post(self):
