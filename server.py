@@ -7,8 +7,9 @@ import string
 import urllib
 
 patterns = ["*.mp3","*.aiff","*.ogg","*.m4a"]
-rootPath = "C:/Path/to/your/music/"
-htmlPath = "C:/path/to/html/"
+rootPath = "C:/Users/Jacob/Music/Music Prior to 2nd Re-flash/"
+htmlPath = "C:/Users/Jacob/Documents/Python/Drop In Music Server/html/"
+
 class MainHandler(tornado.web.RequestHandler):
     def post(self):
         q_str = self.get_argument("query_string","")
@@ -43,23 +44,23 @@ class FileHandler(tornado.web.RequestHandler):
 class SearchHandler(tornado.web.RequestHandler):
     def post(self):
         q_str = self.get_argument("query_string","")
+        print q_str
         args = json.loads(q_str)
         search_for = args["search_for"]
-        all_files = recursive_file_search(patterns,rootPath)
+        good_files = []
         ret_files = []
-        bad_files = []
-        for f in all_files:
-            f = f[len(rootPath):]
-            f.replace("\\","/")
+        bad_files =[] 
+        for f in rootScan:
             try:
-                if(search_for in f):
-                    ret_files.append(f)
+                if search_for in f:
+                    good_files.append(f)
             except:
+                
                 bad_files.append(f)
-        ret_str_dict = {
-            "files":ret_files
-            }
-        self.write(json.dumps(ret_str_dict))
+        for fn in good_files:
+            ret_files.append(fn[len(rootPath):])
+        self.write(json.dumps({"files":ret_files,"bad":len(bad_files)}))
+                
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
         self.write("<meta http-equiv='refresh' content='0; url=site/index.html'>");
@@ -128,10 +129,12 @@ application = tornado.web.Application([
     (r'/static/files/(.*)', tornado.web.StaticFileHandler, {'path': rootPath}),
     (r'/site/(.*)', tornado.web.StaticFileHandler, {'path': htmlPath}),
 ])
+rootScan = recursive_file_search(patterns,rootPath)
 if __name__ == "__main__":
     application.listen(raw_input("Port:"))
     tornado.ioloop.IOLoop.instance().start()
-    print folder_search(rootPath)
+    #print folder_search(rootPath)
+    
 
 
 

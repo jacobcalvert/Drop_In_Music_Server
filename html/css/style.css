@@ -2,6 +2,7 @@ body{
     background:url('../img/dark_clouds.jpg');
     background-repeat:repeat;
     font-family:Tahoma, Geneva, sans-serif;
+    margin:0px;
 }
 #container{
     margin:auto;
@@ -146,4 +147,66 @@ background:#778888;
     background-size:40px 40px;
 
 
+}
+#hover_menu_tab{
+    position:fixed;
+    margin:0px;
+    top:30%;
+    background:#1B1A1F url('../img/search.png');
+    background-repeat:no-repeat;
+    background-size: 25px 25px;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-left:30px;
+    padding-right:5px;
+    height:25px;
+    cursor:pointer;
+    float:left;
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+    color:#FFFFFF;
+
+
+
+}
+#hover_menu_tab:hover{
+    background:#1B1A1F url('../img/search.png');
+    background-repeat:no-repeat;
+    background-size: 25px 25px;
+
+}
+#hover_menu{
+    background:#1B1A1F;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-right-radius: 5px;
+    overflow:hidden;
+    width:0px;
+    position:fixed;
+    top:30%;
+    left:-30px;
+    padding:15px;
+
+
+}
+#hover_menu li{
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+    color:#188A00;
+    width:250px;
+    list-style-type:none;
+    text-align:center;
+
+}
+#hover_menu li a{
+    text-decoration:none;
+    color:#188A00;
+}
+#hover_menu li a:hover{
+    color:#FFFFFF;
+}
+li.results{
+    font-size:10px;
 }

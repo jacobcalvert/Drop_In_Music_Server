@@ -1,5 +1,8 @@
 jQuery(document).ready(function(){
-
+$("#search").keyup(function(){
+searchFor(String($(this).val()));
+updateHandlers();
+});
  //Regular Functions
 function updateHandlers(){
 $(".items_folder,.items_file,.items_back_folder").unbind('click').click(function(){
@@ -66,6 +69,8 @@ $(".items_folder,.items_file,.items_back_folder").unbind('click').click(function
         }
         });
 
+
+
 }
 function cleanURL(url){
 var uri = new URI(url);
@@ -79,7 +84,6 @@ function createCookie(name, value, days) {
     } else var expires = "";
     document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
 }
-
 function readCookie(name) {
     var nameEQ = escape(name) + "=";
     var ca = document.cookie.split(';');
@@ -90,7 +94,6 @@ function readCookie(name) {
     }
     return null;
 }
-
 function eraseCookie(name) {
     createCookie(name, "", -1);
 }
@@ -117,5 +120,32 @@ $(this).remove();
 $(this).remove();
 });
 }
+function searchFor(str){
+var data_string = JSON.stringify({"search_for":str});
+ $.ajax({type: "POST",url: "../api/search",data: {"query_string":data_string},
+                }).done(function(data){
+                    var data_pool = JSON.parse(data);
+                    var files = data_pool["files"];
+                    var upper = 6
+                    if(files.length<upper){
+                        upper = files.length;
+                    }
+                    $("#hover_menu p").each(function(){
+                        $(this).remove();
+                    });
+                    if (upper==0)
+                    {
+                    $("#hover_menu").append("<p>No Results</p>");
+                    }
+                    else{
+                    for (i=0;i<upper ;i++){
+                        $("#hover_menu").append("<p class='items_file' id=\""+files[i]+"\">"+getName(files[i])+"</p>");
+                    }
+                    }
+                updateHandlers();
+                });
+
+}
+
 updateHandlers();
 });
